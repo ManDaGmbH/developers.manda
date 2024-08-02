@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Print Doc</title>
+	<style type="text/css">
+		@media print {
+    #print_sec {
+        background-color: white;
+        height: 100%;
+        width: 100%;
+/*        position: fixed;*/
+/*        top: 0;*/
+/*        left: 0;*/
+        margin: 0;
+        padding: 15px;
+        font-size: 14px;
+        line-height: 18px;
+    }
+	@page { size: auto;  margin: 0mm; }
+	.hide{
+		display: none;
+
+	}
+}
+
+
+	</style>
+</head>
+<body>
+<input type="button" class="hide" onclick="PrintElem('print_sec')" id="print_button" value="Print all">
+<div id="print_sec">
+	<div style="text-align: center; ">
+		<img src="img1.jpg" width="500px">
+	</div>
+	<div style="text-align: center;">
+
+	<img src="img2.jpg" width="500px">
+	</div>
+	<div style="text-align: center;">
+	<img src="img3.jpg" width="500px">
+	</div>
+	<div style="text-align: center;">
+	<img src="img4.jpg" width="500px">
+	</div>
+	<div style="text-align: center;">
+		<embed src="my.pdf" width="800px"  height="1000px" />
+	</div>
+</div>
+<script type="text/javascript">
+	
+	function PrintElem(elem)
+{
+    var mywindow = window.open('', 'PRINT', 'height=600,width=900');
+
+    mywindow.document.write('<html><head><style>div{padding: 50px;}  @page { size: auto;  margin: 0mm; }</style><title></title>');
+    mywindow.document.write('</head><body >');
+    // mywindow.document.write('<h1>' + document.title  + '</h1>');
+    mywindow.document.write(document.getElementById(elem).innerHTML);
+    mywindow.document.write('</body></html>');
+
+    mywindow.document.close(); // necessary for IE >= 10
+    mywindow.focus(); // necessary for IE >= 10*/
+
+    mywindow.print();
+    mywindow.close();
+
+    return true;
+}
+
+printPdf = function (url) {
+  var iframe = this._printIframe;
+  if (!this._printIframe) {
+    iframe = this._printIframe = document.createElement('iframe');
+    document.body.appendChild(iframe);
+
+    iframe.style.display = 'none';
+    iframe.onload = function() {
+      setTimeout(function() {
+        iframe.focus();
+        iframe.contentWindow.print();
+      }, 1);
+    };
+  }
+
+  iframe.src = url;
+}
+</script>
+
+</body>
+</html>

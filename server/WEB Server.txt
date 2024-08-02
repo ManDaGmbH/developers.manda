@@ -1,0 +1,9 @@
+IP-Adresse: 151.252.50.17, 109.235.59.187
+User: root
+Passwort: ExojnLj3qtaU
+
+Froxlor:
+
+URL: http://manda-1.vautronserver.de/
+User: admin
+PSW: XnmcXT9A7dxK
