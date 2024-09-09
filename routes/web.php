@@ -93,6 +93,7 @@ Route::get('/apis/start-printing', [App\Http\Controllers\FrontendController::cla
 Route::get('/apis/stop-printing', [App\Http\Controllers\PagesController::class, 'apiStopPrinting']);
 //Route::post('/apis/upload-files', 'FrontendController@apiUploadFiles');
 Route::post('/apis/upload-files', 'FrontendController@apiUploadFiles');
+Route::get('/amz-done', 'FrontendController@amzDOne');
 //Route::post('/apis/upload-files', [App\Http\Controllers\FrontendController::class, 'apiUploadFiles']);
 
 

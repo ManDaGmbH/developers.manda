@@ -208,4 +208,8 @@ class FrontendController extends Controller {
         return $randomString;
     }
 
+    public function amzDone() {
+        return view('frontend.amz_done');
+    }
+
 }
